@@ -4,7 +4,12 @@ name: 'build images'
 on:
   push:
     branches:
-      - main
+      - 'main'
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - 'main'
 
 jobs:
   docker:
@@ -41,8 +46,8 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: |
-           ${{ secrets.DOCKER_USERNAME }}/cgminer_exporter:latest
-            ghcr.io/${{ github.actor }}/cgminer_exporter:latest
+           ${{ secrets.DOCKER_USERNAME }}/cgminer_exporter
+            ghcr.io/${{ github.actor }}/cgminer_exporter
       
       - name: Build and push Docker images
         uses: docker/build-push-action@v2
