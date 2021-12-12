@@ -41,8 +41,8 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: |
-           ${{ secrets.DOCKER_USERNAME }}/cgminer_exporter
-            ghcr.io/${{ github.actor }}/cgminer_exporter
+           ${{ secrets.DOCKER_USERNAME }}/cgminer_exporter:latest
+            ghcr.io/${{ github.actor }}/cgminer_exporter:latest
       
       - name: Build and push Docker images
         uses: docker/build-push-action@v2
