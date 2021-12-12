@@ -42,7 +42,7 @@ jobs:
         with:
           images: |
            ${{ secrets.DOCKER_USERNAME }}/cgminer_exporter
-            ghcr.io/${{ github.repository }}
+            ghcr.io/cgminer_exporter
       
       - name: Build and push Docker images
         uses: docker/build-push-action@v2
